@@ -1,0 +1,36 @@
+<div layout="row">
+    <md-input-container>
+        <label>Variable</label>
+        <input ng-model="$ctrl.rule.variable">
+    </md-input-container>
+<!--    <md-autocomplete-->
+<!--            md-selected-item="$ctrl.rule.variable"-->
+<!--            md-search-text="$ctrl.searchText"-->
+<!--            md-items="item in $ctrl.querySearch($ctrl.searchText)"-->
+<!--            md-item-text="item.display"-->
+<!--            md-min-length="0"-->
+<!--            placeholder="Variable"-->
+<!--            input-aria-labelledby="favoriteStateLabel">-->
+<!--        <md-item-template>-->
+<!--            <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{item}}</span>-->
+<!--        </md-item-template>-->
+<!--    </md-autocomplete>-->
+    <md-input-container>
+        <label>Operator</label>
+        <md-select ng-model="$ctrl.rule.operator">
+            <md-option ng-repeat="operator in $ctrl.operators" ng-value="operator">
+                {{operator}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+
+    <md-input-container>
+        <label>Parameter</label>
+        <input ng-model="$ctrl.rule.parameter">
+    </md-input-container>
+
+    <md-button class="md-icon-button md-accent" ng-click="$ctrl.onDelete()">
+        <md-icon md-font-icon="fas fa-trash-alt"></md-icon>
+    </md-button>
+
+</div>

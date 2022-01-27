@@ -1,0 +1,52 @@
+<md-toolbar>
+
+    <div class="md-toolbar-tools">
+        <div flex ng-hide="$ctrl.isRoot && $ctrl.rule.rules.length < 2">
+            <select ng-model="$ctrl.rule.operator">
+                <option value="OR">Any</option>
+                <option value="AND">All</option>
+            </select>
+            of the following are true
+        </div>
+
+        <md-button ng-click="$ctrl.addExpression()" class="md-raised md-hue-3">
+            Add expression
+        </md-button>
+
+
+        <md-button ng-click="$ctrl.addGroup()" class="md-raised">
+            Add group
+        </md-button>
+
+        <md-button ng-click="$ctrl.addCondition()" class="md-raised">Add condition</md-button>
+
+        <md-button class="md-icon-button md-accent" ng-if="!$ctrl.isRoot" ng-click="$ctrl.onDelete()">
+            <md-icon md-font-icon="fas fa-trash-alt"></md-icon>
+        </md-button>
+
+    </div>
+</md-toolbar>
+
+<md-content class="md-padding md-whiteframe-1dp" ng-show="$ctrl.rule.rules.length > 0">
+    <div ng-repeat="subRule in $ctrl.rule.rules">
+        <mds-condition-builder-group
+                ng-if="subRule.type == 'group'"
+                rule="subRule"
+                on-delete="$ctrl.deleteRule($index)">
+        </mds-condition-builder-group>
+
+        <mds-condition-builder-expression
+                ng-if="subRule.type == 'expression'"
+                rule="subRule"
+                on-delete="$ctrl.deleteRule($index)">
+        </mds-condition-builder-expression>
+
+        <mds-condition-builder-condition
+            ng-if="subRule.type == 'condition'"
+            on-delete="$ctrl.deleteRule($index)"
+            print-condition="$ctrl.printCondition($index)"
+            rule="subRule">
+    </mds-condition-builder-condition>
+
+    </div>
+</md-content>
