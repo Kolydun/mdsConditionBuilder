@@ -14,6 +14,7 @@
         });
 
     mdsConditionBuilderGroupCtrl.$inject = ['$mdDialog'];
+
     function mdsConditionBuilderGroupCtrl($mdDialog) {
         var $ctrl = this;
 
@@ -39,6 +40,10 @@
                 operator: '',
                 parameter: '',
             })
+        }
+
+        $ctrl.changeOperator = (operator) => {
+            $ctrl.rule.operator = operator;
         }
     }
 })(angular);

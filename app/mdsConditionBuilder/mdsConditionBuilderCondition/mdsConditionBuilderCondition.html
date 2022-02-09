@@ -1,4 +1,4 @@
-<div layout="row" style="border: 1px solid #DCD; border-radius: 50px; padding: 0 10px;">
+<div layout="row" style="border: 1px solid #DCDCDC; border-radius: 50px; padding: 0 10px;">
     <md-input-container>
         <label>Variable</label>
         <input ng-model="$ctrl.rule.variable">
@@ -30,8 +30,8 @@
     </md-input-container>
 
     <div style="display: flex; align-items: center">
-        <md-button class="md-icon-button md-accent" ng-click="$ctrl.onDelete()">
-            <md-icon md-font-icon="fas fa-times"></md-icon>
+        <md-button class="md-fab md-raised md-mini md-warn" ng-click="$ctrl.onDelete()">
+            <span style="color: #FFF">X</span>
         </md-button>
     </div>
 </div>

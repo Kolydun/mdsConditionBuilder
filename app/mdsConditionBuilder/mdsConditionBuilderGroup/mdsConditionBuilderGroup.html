@@ -1,64 +1,90 @@
-<md-toolbar style="background: #FFF">
+<div style="border: 1px solid #DCDCDC; border-top: 4px solid #DCDCDC">
 
-    <div class="md-toolbar-tools">
-        <div ng-hide="$ctrl.isRoot && $ctrl.rule.rules.length < 2" style="color: #000">
-            <md-select ng-model="$ctrl.rule.operator">
-                <md-option value="OR">Any</md-option>
-                <md-option value="AND">All</md-option>
-            </md-select>
+    <md-toolbar style="background: #FFF">
+
+        <div class="md-toolbar-tools" style="justify-content: space-between">
+            <div style="color: #000; justify-content: end">
+                <md-button
+                        ng-if="$ctrl.rule.operator =='OR'"
+                        class="md-raised md-primary"
+                        ng-model="$ctrl.rule.operator">
+                    Any
+                </md-button>
+                <md-button
+                        ng-if="$ctrl.rule.operator !='OR'"
+                        class="md-raised"
+                        ng-model="$ctrl.rule.operator"
+                        ng-click="$ctrl.changeOperator('OR')">
+                    Any
+                </md-button>
+                <md-button
+                        ng-if="$ctrl.rule.operator =='AND'"
+                        class="md-raised md-primary"
+                        ng-model="$ctrl.rule.operator"
+                        ng-click="">
+                    All
+                </md-button>
+                <md-button
+                        ng-if="$ctrl.rule.operator !='AND'"
+                        class="md-raised"
+                        ng-model="$ctrl.rule.operator"
+                        ng-click="$ctrl.changeOperator('AND')">
+                    All
+                </md-button>
+            </div>
+
+            <div>
+                <md-button ng-click="$ctrl.addExpression()" class="md-raised md-primary">
+                    <md-icon md-font-icon="fas fa-plus"></md-icon>
+                    Add expression
+                </md-button>
+
+                <md-button ng-click="$ctrl.addGroup()" class="md-raised md-primary">
+                    <md-icon md-font-icon="fas fa-layer-group"></md-icon>
+                    Add group
+                </md-button>
+
+                <md-button ng-click="$ctrl.addCondition()" class="md-raised md-primary">
+                    <md-icon md-font-icon="fas fa-plus"></md-icon>
+                    Add condition
+                </md-button>
+
+                <md-button class="md-fab md-raised md-mini md-warn" ng-if="!$ctrl.isRoot" ng-click="$ctrl.onDelete()">
+                    <span style="color: #FFF">X</span>
+                </md-button>
+            </div>
         </div>
+    </md-toolbar>
 
-        <md-button ng-click="$ctrl.addExpression()" class="md-primary">
-            <md-icon md-font-icon="fas fa-plus"></md-icon>
-            Add expression
-        </md-button>
+    <div layout="row">
+        <md-content class="md-padding"
+                    ng-show="$ctrl.rule.rules.length > 0"
+                    style="background: #FFF; width: 100%">
+            <div ng-repeat="subRule in $ctrl.rule.rules">
 
-        <md-button ng-click="$ctrl.addGroup()" class="md-primary">
-            <md-icon md-font-icon="fas fa-layer-group"></md-icon>
-            Add group
-        </md-button>
+                <mds-condition-builder-expression
+                        class="mds-condition-builder-expression-container md-padding"
+                        ng-if="subRule.type == 'expression'"
+                        rule="subRule"
+                        on-delete="$ctrl.deleteRule($index)">
+                </mds-condition-builder-expression>
 
-        <md-button ng-click="$ctrl.addCondition()" class="md-primary">
-            <md-icon md-font-icon="fas fa-plus"></md-icon>
-            Add condition
-        </md-button>
+                <mds-condition-builder-condition
+                        class="md-padding"
+                        ng-if="subRule.type == 'condition'"
+                        on-delete="$ctrl.deleteRule($index)"
+                        print-condition="$ctrl.printCondition($index)"
+                        rule="subRule">
+                </mds-condition-builder-condition>
 
-        <md-button class="md-icon-button md-accent" ng-if="!$ctrl.isRoot" ng-click="$ctrl.onDelete()">
-            <md-icon md-font-icon="fas fa-times"></md-icon>
-        </md-button>
+                <mds-condition-builder-group
+                        class="md-padding"
+                        ng-if="subRule.type == 'group'"
+                        rule="subRule"
+                        on-delete="$ctrl.deleteRule($index)">
+                </mds-condition-builder-group>
 
+            </div>
+        </md-content>
     </div>
-</md-toolbar>
-
-<div layout="row">
-    <div style="border: 4px solid red; border-right: 0; width: 10px" ng-show="$ctrl.rule.rules.length > 0"></div>
-    <md-content class="md-padding"
-                ng-show="$ctrl.rule.rules.length > 0"
-                style="background: #FFF; width: 100%">
-        <div ng-repeat="subRule in $ctrl.rule.rules">
-
-            <mds-condition-builder-expression
-                    class="md-padding"
-                    ng-if="subRule.type == 'expression'"
-                    rule="subRule"
-                    on-delete="$ctrl.deleteRule($index)">
-            </mds-condition-builder-expression>
-
-            <mds-condition-builder-condition
-                    class="md-padding"
-                    ng-if="subRule.type == 'condition'"
-                    on-delete="$ctrl.deleteRule($index)"
-                    print-condition="$ctrl.printCondition($index)"
-                    rule="subRule">
-            </mds-condition-builder-condition>
-
-            <mds-condition-builder-group
-                    class="md-padding"
-                    ng-if="subRule.type == 'group'"
-                    rule="subRule"
-                    on-delete="$ctrl.deleteRule($index)">
-            </mds-condition-builder-group>
-
-        </div>
-    </md-content>
 </div>
