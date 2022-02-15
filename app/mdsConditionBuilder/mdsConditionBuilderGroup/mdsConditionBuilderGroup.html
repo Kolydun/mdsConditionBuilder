@@ -1,8 +1,11 @@
 <div layout="column"
-     style="border: 1px solid #DCDCDC; border-top: 4px solid #DCDCDC;"
-md-colors="{'border-color': 'primary-600'}">
+     ng-class="{'group-box': !$ctrl.isRoot}"
+     class="md-margin"
+     style="border: 1px solid; border-top: 4px solid;"
+     md-colors="{'border-color': 'primary-600'}">
 
-    <md-toolbar style="background: #FFF">
+    <md-toolbar style="background: #FFF"
+                ng-class="{'group-connection-line': $ctrl.rule.rules.length > 0, 'group-middle-line': !$ctrl.isRoot}">
 
         <div class="md-toolbar-tools" style="justify-content: space-between">
             <div style="color: #000; justify-content: end">
