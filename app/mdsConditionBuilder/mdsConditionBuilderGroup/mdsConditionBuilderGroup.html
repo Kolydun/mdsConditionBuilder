@@ -1,5 +1,5 @@
 <div layout="column"
-     ng-class="{'group-box': !$ctrl.isRoot}"
+     ng-class="{'group-box': !$ctrl.isRoot && $ctrl.index == 1}"
      class="md-margin"
      style="border: 1px solid; border-top: 4px solid;"
      md-colors="{'border-color': 'primary-600'}">
@@ -78,7 +78,6 @@
                         class="md-padding"
                         ng-if="subRule.type == 'condition'"
                         on-delete="$ctrl.deleteRule($index)"
-                        print-condition="$ctrl.printCondition($index)"
                         rule="subRule">
                 </mds-condition-builder-condition>
 
@@ -86,7 +85,8 @@
                         class="md-padding"
                         ng-if="subRule.type == 'group'"
                         rule="subRule"
-                        on-delete="$ctrl.deleteRule($index)">
+                        on-delete="$ctrl.deleteRule($index)"
+                index={{$index}}>
                 </mds-condition-builder-group>
 
             </div>

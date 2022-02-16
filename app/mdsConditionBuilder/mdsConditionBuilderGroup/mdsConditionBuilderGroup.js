@@ -9,7 +9,8 @@
             bindings: {
                 rule: '=',
                 onDelete: '&',
-                isRoot: '='
+                isRoot: '=',
+                index: '@'
             },
         });
 

@@ -9,7 +9,6 @@
         templateUrl: 'mdsConditionBuilder/mdsConditionBuilderCondition/mdsConditionBuilderCondition.html',
         bindings: {
             onDelete: '&',
-            printCondition: '&',
             conditionRule: '=',
             rule: '=',
         },
