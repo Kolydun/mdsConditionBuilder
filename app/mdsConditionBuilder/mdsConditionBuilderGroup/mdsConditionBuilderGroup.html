@@ -1,11 +1,13 @@
 <div layout="column"
-     ng-class="{'group-box': !$ctrl.isRoot && $ctrl.index == 1}"
      class="md-margin"
      style="border: 1px solid; border-top: 4px solid;"
      md-colors="{'border-color': 'primary-600'}">
 
     <md-toolbar style="background: #FFF"
-                ng-class="{'group-connection-line': $ctrl.rule.rules.length > 0, 'group-middle-line': !$ctrl.isRoot}">
+                ng-class="{
+                'group-connection-line': $ctrl.rule.rules.length > 0,
+                'group-middle-line': !$ctrl.isRoot,
+                'group-middle-line-none': $ctrl.index == $ctrl.parentRulesLength - 1 && $ctrl.index != 0}">
 
         <div class="md-toolbar-tools" style="justify-content: space-between">
             <div style="color: #000; justify-content: end">
@@ -65,7 +67,8 @@
         <md-content class="md-padding"
                     ng-show="$ctrl.rule.rules.length > 0"
                     style="background: #FFF; width: 100%">
-            <div ng-repeat="subRule in $ctrl.rule.rules">
+            <div ng-repeat="subRule in $ctrl.rule.rules"
+                 ng-class="{'test': subRule.type != 'expression' && subRule.type != 'condition'}">
 
                 <mds-condition-builder-expression
                         class="mds-condition-builder-expression-container md-padding"
@@ -86,6 +89,7 @@
                         ng-if="subRule.type == 'group'"
                         rule="subRule"
                         on-delete="$ctrl.deleteRule($index)"
+                        parent-rules-length="{{$ctrl.rule.rules.length}}"
                 index={{$index}}>
                 </mds-condition-builder-group>
 

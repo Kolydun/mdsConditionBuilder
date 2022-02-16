@@ -4,7 +4,6 @@
     <list default="true" id="89bcaec4-1242-40b3-aba8-578f105cb323" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderCondition/mdsConditionBuilderCondition.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderCondition/mdsConditionBuilderCondition.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderGroup/mdsConditionBuilderGroup.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderGroup/mdsConditionBuilderGroup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderGroup/mdsConditionBuilderGroup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/mdsConditionBuilder/mdsConditionBuilderGroup/mdsConditionBuilderGroup.js" afterDir="false" />
     </list>
@@ -17,6 +16,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -49,7 +53,7 @@
       <updated>1643293872808</updated>
       <workItem from="1643293874616" duration="38000" />
       <workItem from="1644339079376" duration="14886000" />
-      <workItem from="1644927119096" duration="24407000" />
+      <workItem from="1644927119096" duration="35688000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,8 @@
                 rule: '=',
                 onDelete: '&',
                 isRoot: '=',
-                index: '@'
+                index: '@',
+                parentRulesLength: '@',
             },
         });
 
