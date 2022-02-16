@@ -10,7 +10,6 @@
                 rule: '=',
                 onDelete: '&',
                 isRoot: '=',
-                index: '@'
             },
         });
 
